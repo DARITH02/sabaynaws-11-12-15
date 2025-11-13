@@ -12,6 +12,29 @@
     ></script>
   </head>
 
+  <style>
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
   <body>
     <header>
       <div class="container-width">
@@ -67,7 +90,6 @@
     <div class="container-width hero">
       <div class="hero-items bg-item-1">
         <div class="clip"></div>
-
         <div class="title">
           CEO វ័យ ១៨ឆ្នាំ រៀនសរសេរកូដតាំងពីអាយុ ៧ឆ្នាំ ឥឡូវនេះ មាន App AI
           រកលុយបាន ខ្ទង់លានដុល្លារ
@@ -124,5 +146,31 @@
         <div>6</div>
       </div>
     </div>
+
+    <!-- hero slid mobile screen -->
+
+    <div class="slid">
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        pagination-clickable="true"
+        navigation="true"
+        space-between="30"
+        centered-slides="true"
+        autoplay-delay="2500"
+        autoplay-disable-on-interaction="false"
+      >
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <swiper-slide>Slide 8</swiper-slide>
+        <swiper-slide>Slide 9</swiper-slide>
+      </swiper-container>
+    </div>
   </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>

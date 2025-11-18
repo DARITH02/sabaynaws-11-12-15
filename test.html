@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camera Demo</title>
+    <style>
+      video {
+        width: 500px;
+        height: 375px;
+        border: 2px solid #444;
+        border-radius: 10px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 8px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>📷 My Camera Preview</h2>
+    <video id="camera" autoplay></video><br />
+    <button id="startBtn">Start Camera</button>
+    <button id="stopBtn">Stop Camera</button>
+
+    <script>
+      const video = document.getElementById("camera");
+      const startBtn = document.getElementById("startBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      let stream;
+
+      // Start camera
+      startBtn.addEventListener("click", async () => {
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false,
+          });
+          video.srcObject = stream;
+        } catch (err) {
+          alert("Error: " + err.message);
+        }
+      });
+
+      // Stop camera
+      stopBtn.addEventListener("click", () => {
+        if (stream) {
+          const tracks = stream.getTracks();
+          tracks.forEach((track) => track.stop());
+          video.srcObject = null;
+        }
+      });
+    </script>
+  </body>
+</html>

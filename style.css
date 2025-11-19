@@ -116,10 +116,12 @@ header {
   padding: 0 2rem;
 }
 .main-content {
-  margin-top: 55px;
   position: relative;
 }
-.main-content::before {
+.container-width {
+  max-width: unset;
+}
+/* .main-content::before {
   content: "";
   width: 100%;
   height: 5px;
@@ -128,14 +130,18 @@ header {
   top: 0px;
   left: 0;
   background-color: red;
-}
-.clip-main {
+} */
+/* .clip-main {
   width: 100px;
   height: 50px;
   background-color: red;
   position: absolute;
   top: -50px;
   clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+} */
+
+.clip-main {
+  display: none;
 }
 
 .main-content {
@@ -148,19 +154,22 @@ header {
   width: max-content;
 }
 .top-main-section-grid {
+  width: 100%;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 250px;
   gap: 1rem;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   height: 250px;
   width: max-content;
+
   /* background-color: red; */
 }
 .items-main {
   width: 100%;
   height: 100%;
   background-color: blue;
+  overflow: hidden;
 }
 .img-main {
   width: 100%;
@@ -195,6 +204,61 @@ header {
 .bottom-img-main img {
   width: 100%;
   height: 100%;
+}
+.line {
+  max-width: 100%;
+  height: 5px;
+  background-color: red;
+  position: relative;
+  margin-top: 70px;
+}
+.line::before {
+  content: "1";
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  position: absolute;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+
+  top: -50px;
+  clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
+}
+
+.main-content-2 {
+  position: relative;
+}
+.main-content-2::before {
+  content: "";
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  top: 0;
+  background-color: red;
+  display: block;
+}
+.main-content-2,
+.main-right {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 250px;
+
+  height: 250px;
+  overflow-x: scroll;
+  /* width: max-content; */
+  width: 100%;
+  gap: 1rem;
+}
+.clip-main-2 {
+  width: 100px;
+  height: 50px;
+  margin-top: 1rem;
+  background-color: red;
+  display: block;
+}
+.main-right-items {
+  background-color: blue;
 }
 
 @media (min-width: 768px) {
@@ -337,6 +401,10 @@ header {
   .slid {
     display: none;
   }
+  .line {
+    display: none;
+  }
+
   .main-content {
     background-color: whitesmoke;
     margin-top: 10rem;
@@ -345,6 +413,23 @@ header {
     grid-template-rows: 300px 400px;
     padding: 3rem;
     position: relative;
+  }
+  .main-content::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 5px;
+    background-color: red;
+    top: 0;
+  }
+  .clip-main {
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: -50px;
+    display: block;
+    clip-path: polygon(0 0, 83% 0, 100% 100%, 0% 100%);
   }
   .top-main-section-grid {
     height: 100%;
@@ -401,6 +486,38 @@ header {
   .bottom-items-main:hover img {
     transform: scale(0.98);
     cursor: pointer;
+  }
+  .main-content,
+  .top-main-section-grid,
+  .bottom-main-section-grid {
+    grid-auto-flow: unset;
+    grid-auto-columns: unset;
+    width: unset;
+    height: unset;
+    overflow: unset;
+  }
+  .main-content-2 {
+    background-color: red;
+    height: 500px;
+    display: grid;
+    grid-template-rows: 1fr;
+
+    grid-template-columns: 30% auto;
+
+    padding: 2.5rem;
+  }
+  .main-left {
+    background-color: blue;
+  }
+  .main-right {
+    background-color: chartreuse;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .main-right-items {
+    background-color: brown;
   }
 }
 /* etec@22012 */
